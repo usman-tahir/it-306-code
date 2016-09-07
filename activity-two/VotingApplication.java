@@ -93,21 +93,31 @@ public class VotingApplication {
 	}
 	
 	public static Candidate getWinner(Candidate[] candids, Voter[] voters){
-		//TODO
+
+		// Caching lengths for the loop
 		int candidateNumber = candids.length; 
 		int numberOfVoters = voters.length;
+
+		// Loop iteration
 		int i, j;
 
+		// Creation of the buckets to filter the votes into
 		Bucket[] candidateBucket = new Bucket[candidateNumber];
 
 		for (i = 0; i < candidateNumber; i += 1) {
 
+			/*
+				Each candidate bucket can hold a maximum of votes equal to the number of voters,
+				which can grow or shrink in size
+			*/
 			candidateBucket[i] = new Bucket(numberOfVoters, candids[i].getCode());
 
 		}
 
+		// Filter through the votes and add them to the correct bucket
 		for (i = 0; i < candidateBucket.length; i += 1) {
 
+			// This inner loop assigns each voter to a bucket
 			for (j = 0; j < numberOfVoters; j += 1) {
 
 				if (voters[j].getVote() == candidateBucket[i].getKey()) {
@@ -120,6 +130,7 @@ public class VotingApplication {
 
 		}
 
+		// Rudimentary "max" functionality to find the winning candidate
 		int maxCandidateKey = candidateBucket[0].getKey();
 		int maxCandidateVotes = candidateBucket[0].getSize();
 		for (i = 0; i < candidateNumber; i += 1) {
@@ -133,6 +144,7 @@ public class VotingApplication {
 
 		}
 
+		// Return the candidate with the highest votes from the candids array (zero indexed, so subtract 1)
 		return candids[maxCandidateKey - 1];
 
 	}
