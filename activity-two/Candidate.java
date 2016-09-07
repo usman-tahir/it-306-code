@@ -1,4 +1,3 @@
-package Lecture_2.Activity2;
 
 public class Candidate {
 	

@@ -1,4 +1,3 @@
-package Lecture_2.Activity2;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,15 +15,15 @@ public class VotingApplication {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String pathCandidates= "./src/Lecture_2/Activity2/candidate.txt"; 
-		String pathVoters = "src/Lecture_2/Activity2/voters.txt";
+		String pathCandidates= "./candidate.txt"; 
+		String pathVoters = "./voters.txt";
 		Candidate[] candidates =null;
 		Voter[] voters =null;
 		try{
 			candidates = getCandidates(pathCandidates);
 			voters = getVoters(pathVoters);
-			Candidate winner = getWinner(candidates , voters);
-			JOptionPane.showMessageDialog(null, "The winner is: " + winner.toString());
+			// Candidate winner = getWinner(candidates , voters);
+			// JOptionPane.showMessageDialog(null, "The winner is: " + winner.toString());
 		}
 		catch(FileNotFoundException e){
 			
@@ -59,6 +58,7 @@ public class VotingApplication {
 			candids[i++]=c;
 		}
 
+		System.out.println(candids.toString());
 		return candids;
 		
 	}
@@ -89,12 +89,15 @@ public class VotingApplication {
 			voters[i++]=v;
 		}
 
+		System.out.println(voters.toString());
 		return voters;
 		
 	}
 	
+	/*
 	public static Candidate getWinner(Candidate[] candids, Voter[] voters){
 		//TODO
 	}
+	*/
 
 }
