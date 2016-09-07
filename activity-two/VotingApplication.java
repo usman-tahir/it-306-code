@@ -22,8 +22,8 @@ public class VotingApplication {
 		try{
 			candidates = getCandidates(pathCandidates);
 			voters = getVoters(pathVoters);
-			Candidate winner = getWinner(candidates , voters);
-			JOptionPane.showMessageDialog(null, "The winner is: " + winner.toString());
+			getWinner(candidates , voters);
+			// JOptionPane.showMessageDialog(null, "The winner is: " + winner.toString());
 		}
 		catch(FileNotFoundException e){
 			
@@ -92,13 +92,13 @@ public class VotingApplication {
 		
 	}
 	
-	public static Candidate getWinner(Candidate[] candids, Voter[] voters){
+	public static void getWinner(Candidate[] candids, Voter[] voters){
 		//TODO
 		int candidateNumber = candids.length; 
 		int numberOfVoters = voters.length;
-		int i;
+		int i, j;
 
-		Bucket candidateBucket = new Bucket[candidateNumber];
+		Bucket[] candidateBucket = new Bucket[candidateNumber];
 
 		for (i = 0; i < candidateNumber; i += 1) {
 
@@ -106,7 +106,25 @@ public class VotingApplication {
 
 		}
 
+		for (i = 0; i < candidateBucket.length; i += 1) {
 
+			for (j = 0; j < numberOfVoters; j += 1) {
+
+				if (voters[j].getVote() == candidateBucket[i].getKey()) {
+
+					candidateBucket[i].add(voters[j]);
+
+				}
+
+			}
+
+		}
+
+		for (i = 0; i < candidateNumber; i += 1) {
+
+			System.out.println("Candidate " + candidateBucket[i].getKey() + " has " + candidateBucket[i].getSize() + " votes.");
+
+		}
 
 	}
 
