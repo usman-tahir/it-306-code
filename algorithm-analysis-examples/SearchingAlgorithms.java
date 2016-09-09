@@ -23,6 +23,27 @@ public class SearchingAlgorithms {
     System.out.println("--- Insertion Sort --- ");
     char[] c = {'a', 'd', 'c', 'b'};
     insertionSort(c);
+
+    System.out.println("--- Bubble Sort ---");
+
+    // Initial array
+    int[] n = {34, 24, 66, 27, 8, 33, 101};
+    System.out.println("Before:");
+    printArray(n);
+
+    // Sorted array, printed out
+    System.out.println("After:");
+    int[] s = bubbleSort(n);
+    printArray(s);
+
+  }
+
+  // Prints out the contents of an array based on a simple format
+  public static void printArray(int[] a) {
+    for (int e : a) {
+      System.out.printf("%d ", e);
+    }
+    System.out.println("");
   }
 
   /*
@@ -74,6 +95,17 @@ public class SearchingAlgorithms {
     } while (true);
   }
 
+  /*
+    Uses reassignment to swap elements based on their values. The array
+    is split into two sections - a sorted section, and an unsorted
+    section. Each time an element is encountered, it is compared to the
+    sorted portion of the list, and is compared to each element before
+    being placed to determine its correct placement. That way, the
+    sorted portion of the list is always in the correct, ascending
+    order
+
+    Complexity: O(n)
+  */
   public static void insertionSort(char[] c) {
     int l = c.length;
     for (int i = 0; i < l; i++) {
@@ -93,6 +125,29 @@ public class SearchingAlgorithms {
       System.out.print("last line of for-loop: c = ");
       System.out.println(c);
     }
+  }
+
+  /*
+    Compares the elements in an array, two at a time, and swaps them
+    in the event that the second one is less than the first. After
+    each iteration, one less element needs to be sorted, since the
+    largest element "bubbles up" to the end of the array
+
+    Complexity: O(n^2)
+  */
+  public static int[] bubbleSort(int[] a) {
+    int[] c = a;
+    int l = c.length;
+    for (int x = 0; x < l; x++) {
+      for (int y = 0; y < l - 1; y++) {
+        if (a[y] > a[y + 1]) {
+          int temp = a[y + 1];
+          a[y + 1] = a[y];
+          a[y] = temp;
+        }
+      }
+    }
+    return c;
   }
 
 }
