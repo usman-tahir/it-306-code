@@ -19,6 +19,10 @@ public class SearchingAlgorithms {
 
     // Element does not exist in the array
     int binaryNonExisting = binarySearch(a, 0, 9, 11);
+
+    System.out.println("--- Insertion Sort --- ");
+    char[] c = {'a', 'd', 'c', 'b'};
+    insertionSort(c);
   }
 
   /*
@@ -51,6 +55,7 @@ public class SearchingAlgorithms {
   public static int binarySearch(int[] a, int l, int u, int k) {
     do {
       int m = (l + u) / 2;
+      System.out.printf("l = %d, m = %d, u = %d\n", l, m, u);
       if (k < a[m]) {
         u = m - l;
         System.out.println("a[m] (" + a[m] + ") was greater than k (" + k + "), setting u to " + u + "");
@@ -67,6 +72,27 @@ public class SearchingAlgorithms {
         return -1;
       }
     } while (true);
+  }
+
+  public static void insertionSort(char[] c) {
+    int l = c.length;
+    for (int i = 0; i < l; i++) {
+      System.out.print("first line of for-loop: c = ");
+      System.out.println(c);
+      char cur = c[i];
+      int j = i;
+      while (j > 0 && c[j - 1] > cur) {
+        System.out.print("first line of while-loop: c = ");
+        System.out.println(c);
+        c[j] = c[j - 1];
+        j--;
+        System.out.print("last line of while-loop: c = ");
+        System.out.println(c);
+      }
+      c[j] = cur;
+      System.out.print("last line of for-loop: c = ");
+      System.out.println(c);
+    }
   }
 
 }
