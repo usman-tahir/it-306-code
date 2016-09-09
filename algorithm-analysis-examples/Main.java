@@ -29,7 +29,7 @@ public class Main {
     return result;
   }
 
-  // Computes the polynomial of an array of numbers 
+  // Computes the polynomial of an array of numbers
   public static int horner(int[] a, int n, int x) {
     int result = a[n];
     for (int i = n - 1; i >= 0; --i) {
@@ -56,6 +56,6 @@ public class Main {
       }
     }
     return result;
-  } 
+  }
 
 }
