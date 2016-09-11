@@ -14,5 +14,14 @@ public class BoxingDemo {
     n.write("Hello World!");
     String val_s = n.read();
     System.out.println("Contents are " + val_s);
+
+    String[] words = {
+      "hello",
+      "world",
+      "goodbye",
+      "world"
+    };
+    System.out.println(Utility.contains(words, "hello"));
+    System.out.println(Utility.contains(words, "java"));
   }
 }
