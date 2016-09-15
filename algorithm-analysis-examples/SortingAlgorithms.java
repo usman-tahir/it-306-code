@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 public class SortingAlgorithms {
   public static void main(String[] args) {
     int[] unsorted = {12, 53, 66, 101, 1, 4, 54, 90, 109, 442, 13};
@@ -9,6 +11,23 @@ public class SortingAlgorithms {
 
     int[] selectionSortedList = selectionSort(unsorted);
     printArray(selectionSortedList);
+
+    ArrayList<Double> gpaList = new ArrayList<Double>();
+    gpaList.add(3.44);
+    gpaList.add(3.10);
+    gpaList.add(1.22);
+    printArrayList(gpaList);
+    insertionSort(gpaList);
+    printArrayList(gpaList);
+
+  }
+
+  /* Print out ArrayList elements */
+  public static void printArrayList(ArrayList<?> arrayList) {
+    int i;
+    for (i = 0; i < arrayList.size(); i += 1) {
+      System.out.println(arrayList.get(i));
+    }
   }
 
   /* Print out array elements */
@@ -19,7 +38,14 @@ public class SortingAlgorithms {
     System.out.println();
   }
 
-  /* Insertion sort */
+  public static void printArray(double[] array) {
+    for (double number : array) {
+      System.out.printf(" %f", number);
+    }
+    System.out.println();
+  }
+
+  /* Insertion sort (int) */
   public static int[] insertionSort(int[] array) {
     int arrayLength = array.length;
     int[] tempArray = array;
@@ -35,6 +61,27 @@ public class SortingAlgorithms {
       tempArray[j] = currentNumber;
     }
     return tempArray;
+  }
+
+  /* Insertion sort (double) */
+  public static void insertionSort(ArrayList<Double> list) {
+    double temp;
+        int previousIndex;
+
+        for (int index = 1; index < list.size(); index++) {
+            temp = list.get(index);
+            previousIndex = index - 1;
+            while (previousIndex >= 0 && (list.get(previousIndex) > temp)) {
+                list.set((previousIndex + 1), list.get(previousIndex));
+                previousIndex -= 1;
+            }
+            if (previousIndex >= 0 && list.get(previousIndex) > temp) {
+                list.set((previousIndex + 1), list.get(previousIndex));
+                list.set((previousIndex + 1), temp);
+            } else {
+                list.set((previousIndex + 1), temp);
+            }
+        }
   }
 
   public static int[] selectionSort(int[] array) {
