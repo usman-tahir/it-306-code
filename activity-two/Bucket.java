@@ -22,7 +22,7 @@ public class Bucket {
 	public int getKey(){
 		return key;
 	}
-	
+
 	
 	public int getSize(){
 		return num;
