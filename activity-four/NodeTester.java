@@ -30,7 +30,6 @@ public class NodeTester {
                             JOptionPane.showMessageDialog(null, "There are no elements to sort or print.");
                         } else {
                             JOptionPane.showMessageDialog(null, "Unsorted list: " + print(beg));
-
                             // In-place sort list
                             bubbleSort(unsortedList, beg);
                             JOptionPane.showMessageDialog(null, "Sorted list (Bubble Sort): " + print(beg));
@@ -44,6 +43,7 @@ public class NodeTester {
                         break;
                 }
             } catch (Exception e) {
+                // Invalid/non-numeric input
                 JOptionPane.showMessageDialog(null, "Please enter numeric input.");
             }
             
@@ -92,15 +92,16 @@ public class NodeTester {
         }
 
         for (int i = 0; i <= size; i += 1) {
+            // Get the 'next two' elements and compare them
             current = beg.getNext();
             next = current.getNext();
 
             do {
                 if (current.getVal() > next.getVal()) {
                     // Swap operation
-                    int temp = current.getVal();
-                    current.setVal(next.getVal());
-                    next.setVal(temp);
+                    int temp = current.getVal(); // Set the temporary value for the current link's next node
+                    current.setVal(next.getVal()); // Set the current node's value to the next node's value
+                    next.setVal(temp); // Set the next node's value to the current node's value, essentially swapping them
                 }
                 current = next;
                 next = current.getNext();
