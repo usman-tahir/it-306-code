@@ -35,7 +35,7 @@ public class Node {
         return this.next;
     }
 
-    public static int getSize() {
+    public int getSize() {
         return size;
     }
 
