@@ -17,26 +17,36 @@ public class NodeTester {
         Node beg = unsortedList;
 
         do {
-            option = Integer.parseInt(JOptionPane.showInputDialog("" + "To add press 1\nTo sort press 2\nEnter 3 to exit"));
-            switch (option) {
-                case 1:
-                    newVal = Integer.parseInt(JOptionPane.showInputDialog("Enter an integer to add"));
-                    unsortedList = addToList(newVal, unsortedList);
-                    break;
-                case 2:
-                    // Printing the unsorted list
-                    JOptionPane.showMessageDialog(null, "Unsorted list: " + print(beg));
+            try {
+                option = Integer.parseInt(JOptionPane.showInputDialog("" + "To add press 1\nTo sort press 2\nEnter 3 to exit"));
+                switch (option) {
+                    case 1:
+                        newVal = Integer.parseInt(JOptionPane.showInputDialog("Enter an integer to add"));
+                        unsortedList = addToList(newVal, unsortedList);
+                        break;
+                    case 2:
+                        // Printing the unsorted list
+                        if (print(beg).equals("")) {
+                            JOptionPane.showMessageDialog(null, "There are no elements to sort or print.");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Unsorted list: " + print(beg));
 
-                    // In-place sort list
-                    bubbleSort(unsortedList, beg);
-                    JOptionPane.showMessageDialog(null, "Sorted list (Bubble Sort): " + print(beg));
-                    break;
-                case 3:
-                    System.exit(0);
-                default:
-                    JOptionPane.showMessageDialog(null, "Please enter a valid number (1 - 3).");
-                    break;
+                            // In-place sort list
+                            bubbleSort(unsortedList, beg);
+                            JOptionPane.showMessageDialog(null, "Sorted list (Bubble Sort): " + print(beg));
+                        }
+                        
+                        break;
+                    case 3:
+                        System.exit(0);
+                    default:
+                        JOptionPane.showMessageDialog(null, "Please enter a valid number (1 - 3).");
+                        break;
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please enter numeric input.");
             }
+            
         } while (option != 3);
 
     }
@@ -55,22 +65,28 @@ public class NodeTester {
     public static String print(Node beg) {
         Node current = beg.getNext();
         String output = "";
+
+        if (current == null) {
+            return "";
+        }
+
         while (current != null) {
             output += current.getVal() + ", ";
             current = current.getNext();
         }
-        // JOptionPane.showMessageDialog(null, output);
         return output.substring(0, output.length() - 2);
     }
 
     public static Node bubbleSort(Node list, Node beg) {
         int size = list.getSize();
         Node current, next;
-
+        
+        // The list is empty
         if (size == 0) {
             return null;
         }
 
+        // The list has one element
         if (size == 1) {
             return list;
         }
