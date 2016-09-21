@@ -33,6 +33,8 @@ public class NodeTester {
                             // In-place sort list
                             bubbleSort(unsortedList, beg);
                             JOptionPane.showMessageDialog(null, "Sorted list (Bubble Sort): " + print(beg));
+
+                            /* TODO: insertionSort(unsortedList, beg) */
                         }
                         
                         break;
@@ -67,13 +69,14 @@ public class NodeTester {
         String output = "";
 
         if (current == null) {
-            return "";
+            return ""; // No links in the linked list
         }
 
-        while (current != null) {
+        while (current != null) { // While there are still links
             output += current.getVal() + ", ";
             current = current.getNext();
         }
+        // Remove the last comma for formatting purposes
         return output.substring(0, output.length() - 2);
     }
 
