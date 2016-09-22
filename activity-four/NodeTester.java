@@ -117,31 +117,26 @@ public class NodeTester {
 
     public static Node insertionSort(Node list, Node beg){
         int length = list.getSize();
-
         Node current = beg.getNext();
 
-    if (length == 0 || current == null)
-    {
-        return null;
-    }
+        if (length == 0) {
+            return null;
+        }
 
-    if (length == 1)
-    {
-        return list;
-    }
-        //int lengthMinusOne = length-1;
-        Node nextElement = current.getNext();
+        if (length == 1) {
+            return list;
+        }
 
-        for(int i =0; i< length; i++){
+        for (int i = 1; i < length - 1; i += 1) {
             int k = i;
-            while(k > 0 && current.getVal() < nextElement.getVal() ){
+            Node nextElement = current.getNext();
+            while(k > 0 && nextElement.getVal() < current.getVal()) {
                 int temp = nextElement.getVal(); 
                 nextElement.setVal(current.getVal()); 
                 current.setVal(temp); 
-                k--;
+                k -= 1;
             }
         }
-
         return list;
     }
 
