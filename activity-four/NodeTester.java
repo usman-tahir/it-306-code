@@ -35,6 +35,8 @@ public class NodeTester {
                             JOptionPane.showMessageDialog(null, "Sorted list (Bubble Sort): " + print(beg));
 
                             /* TODO: insertionSort(unsortedList, beg) */
+                            insertionSort(unsortedList, beg);
+                            JOptionPane.showMessageDialog(null, "Sorted list (Insertion Sort): " + print(beg));
                         }
                         
                         break;
@@ -112,5 +114,36 @@ public class NodeTester {
         }
         return list;
     }
+
+    public static Node insertionSort(Node list, Node beg){
+        int length = list.getSize();
+
+        Node current = beg.getNext();
+
+    if (length == 0 || current == null)
+    {
+        return null;
+    }
+
+    if (length == 1)
+    {
+        return list;
+    }
+        //int lengthMinusOne = length-1;
+        Node nextElement = current.getNext();
+
+        for(int i =0; i< length; i++){
+            int k = i;
+            while(k > 0 && current.getVal() < nextElement.getVal() ){
+                int temp = nextElement.getVal(); 
+                nextElement.setVal(current.getVal()); 
+                current.setVal(temp); 
+                k--;
+            }
+        }
+
+        return list;
+    }
+
 
 }
