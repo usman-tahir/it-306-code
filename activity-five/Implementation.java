@@ -6,13 +6,20 @@ public class Implementation {
   }
 
   public static boolean validate(String s) {
-    final char LEFT_P = "(";
-    final char RIGHT_P = ")";
-    final char LEFT_B = "[";
-    final char RIGHT_B = "]";
+    final char LEFT_P = '(';
+    final char RIGHT_P = ')';
+    final char LEFT_B = '[';
+    final char RIGHT_B = ']';
     boolean failed = false;
     Stack stack = new Stack();
-    // TODO
+    
+    char[] elements = new char[s.length()];
+    for (int i = 0; i < elements.length; i += 1) {
+      elements[i] = s.charAt(i);
+      // System.out.println(elements[i]);
+    }
+    
+    return failed;
   }
 
 }
