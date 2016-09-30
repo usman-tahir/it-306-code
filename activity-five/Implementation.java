@@ -12,11 +12,51 @@ public class Implementation {
     final char RIGHT_B = ']';
     boolean failed = false;
     Stack stack = new Stack();
-    
-    char[] elements = new char[s.length()];
-    for (int i = 0; i < elements.length; i += 1) {
-      elements[i] = s.charAt(i);
-      // System.out.println(elements[i]);
+	
+	int strLength = s.length();
+	
+	LNode[] nodeArray = new LNode[strLength];
+	
+	/**
+	* Store each character in a node.
+	*/
+	for(int i = 0; i < strLength; i += 1)
+	{
+		nodeArray[i] = new LNode(s.charAt(i), null);
+	}
+	
+	/**
+	* Link the nodes
+	**/
+	for(int i = 0; i < strLength; i += 1)
+	{
+		if(i!=strLength-1)
+			nodeArray[i].setNext(nodeArray[++i]);
+	}
+	
+	
+	LNode currentNode = nodeArray[0];
+	
+	/**
+	* Push each linked node to a stack
+	**/
+	while(currentNode != null)
+	{
+		stack.push(currentNode);
+		currentNode = currentNode.getNext();
+	}
+    System.out.println(stack.isEmpty());
+	
+	LNode currentNode2 = nodeArray[0];
+    //char[] elements = new char[s.length()];
+    while(currentNode2 != null) {
+      if(stack.pop()!=' ')
+	  {
+		failed=true;
+		break;
+	  }
+	  else
+		currentNode2 = currentNode2.getNext();
     }
     
     return failed;
