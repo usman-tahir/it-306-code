@@ -1,3 +1,11 @@
+/**
+ * Phillip Ramirez
+ * Usman Tahir
+ * IT 306
+ */
+
+package Module_5.Activity_5;
+
 
 public class Implementation {
   public static void main(String[] args) {
@@ -44,27 +52,37 @@ public class Implementation {
 	/**
 	* Link the nodes
 	**/
+	int j=0;
 	for(int i = 0; i < strLength; i += 1)
 	{
 		if(i!=strLength-1)
-			nodeArray[i].setNext(nodeArray[++i]);
+		{
+			j++;
+			nodeArray[i].setNext(nodeArray[j]);
+			System.out.println(nodeArray[i].getNext());
+		}
 	}
 	
 	
 	LNode currentNode = nodeArray[0];
 	
+	LNode nextNode1 = nodeArray[0];
 	/**
 	* Push each linked node on to the stack
 	**/
-	while(currentNode != null)
+	int k=0;
+	while(nextNode1 != null)
 	{
+		System.out.println("Node data to be pushed to node: " + currentNode.getData());
 		mainStack.push(currentNode);
 		oneAheadStack.push(currentNode);
 		oneBehindStack.push(currentNode);
-		currentNode = currentNode.getNext();
+		currentNode = nodeArray[k];
+		nextNode1=currentNode.getNext();
+		k++;
 	}
 	
-    System.out.println(mainStack.isEmpty());
+    //System.out.println(mainStack.isEmpty());
 	
 	LNode currentNode2 = nodeArray[0];
     //char[] elements = new char[s.length()];
@@ -75,49 +93,58 @@ public class Implementation {
 	char peekBehind = '\0';
 	LNode nextNode = nodeArray[0];
 	
+	
     while(currentNode2 != null) {
 		
 		// gets ahead by popping first
+    	if(counter==0)
+    	{
+    		oneAheadStack.pop();
+    	}
+    	if(oneAheadStack.isEmpty()==false)
+    		peekAhead = oneAheadStack.pop();
 		
-		oneAheadStack.pop();
-		peekAhead = oneAheadStack.pop();
-		System.out.println("peekAhead: " + peekAhead);
+    	System.out.println("peekAhead: " + peekAhead);
 		peek = mainStack.pop();
 		
 		System.out.println("peek: " + peek);
 		
 		nextNode = nextNode.getNext();
 		
-		if(peek=='(' && nextNode !=null)
+		if(peek==LEFT_P )
 		{	
-			if(peekAhead==' ')
+			if(peekAhead=='\u0000')
 			{
 				failed=true;
 				System.out.println("No space to the right of open parenthesis allowed!");
+				
 			}
 		}
-		else if(peek==')' && nextNode !=null)
+		else if(peek==RIGHT_P )
 		{
-			if(peekBehind==' ')
+			if(peekBehind=='\u0000')
 			{
 				failed=true;
 				System.out.println("No space to the right of close parenthesis allowed!");
+				
 			}
 		}
-		else if(peek=='[' && nextNode !=null)
+		else if(peek==LEFT_B )
 		{
-			if(peekAhead==' ')
+			if(peekAhead=='\u0000')
 			{
 				failed=true;
 				System.out.println("No space to the right of open bracket allowed!");
+				
 			}
 		}
-		else if(peek==']' && nextNode !=null)
+		else if(peek==RIGHT_B)
 		{
-			if(peekBehind==' ')
+			if(peekBehind=='\u0000')
 			{
 				failed=true;
 				System.out.println("No space to the right of close bracket allowed!");
+				
 			}
 		}
 	

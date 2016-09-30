@@ -1,3 +1,11 @@
+/**
+ * Phillip Ramirez
+ * Usman Tahir
+ * IT 306
+ */
+
+package Module_5.Activity_5;
+
 
 public class LNode {
   
@@ -32,5 +40,12 @@ public class LNode {
       return true;
     }
   }
+  
+  @Override
+  public String toString()
+  {
+	  return "Data: " + data;
+  }
 
 }
+
