@@ -4,8 +4,6 @@
  * IT 306
  */
 
-package Module_5.Activity_5;
-
 
 public class LNode {
   

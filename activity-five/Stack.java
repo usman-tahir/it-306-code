@@ -5,9 +5,6 @@
  */
 
 
-package Module_5.Activity_5;
-
-
 public class Stack {
 
   private LNode top;

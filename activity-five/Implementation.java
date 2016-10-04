@@ -4,13 +4,36 @@
  * IT 306
  */
 
-package Module_5.Activity_5;
-
 
 public class Implementation {
   public static void main(String[] args) {
     String s = "(2 + 3) * [ (4 / 4 )]";
     System.out.println(validate(s));
+  }
+
+  public static boolean validate(String s) {
+	final char LEFT_P = '(';
+	final char RIGHT_P = ')';
+	final char LEFT_B = '[';
+	final char RIGHT_B = ']';
+	boolean failed = false;
+
+	// Independent stack that sets the pace for validation
+	Stack mainStack = new Stack();
+
+	// Dependent stack that stays one step ahead of mainStack
+	Stack oneAheadStack = new Stack();
+
+	// Dependent stack that stays one step behind of mainStack
+	Stack oneBehindStack = new Stack();
+
+	int stringLength = s.length();
+	LNode stringElements = new LNode[stringLength];
+
+	// Store each character as a Node (non-linked)
+	for (int i = 0; i < stringLength; i += 1) {
+		
+	}
   }
 
   public static boolean validate(String s) {
