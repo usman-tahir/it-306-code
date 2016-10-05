@@ -1,0 +1,6 @@
+1000 Stafford,Fairfax,va ; $450000 ; active
+1234 Cotswolds lane, Fairfax ,va; $480000 ; active
+458 Main, Manassas , va; $350000 ; pending
+234 Locust, McLean, va; $690000 ; pending
+9800 fairoaks way, Fairfax ,va; $450000 ; active
+121 University, Fairfax ,va; $380000 ; active
