@@ -1,5 +1,5 @@
 
-public class ConvertHexTwoDec {
+public class ConvertHexToDec {
 
   public static void main(String[] args) {
 
