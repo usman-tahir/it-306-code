@@ -1,7 +1,7 @@
 
-public class CodingBatRecursionMethods {
+public class CodingbatRecursionMethods {
   public static void main(String[] args) {
-
+    
   }
 
   /*
@@ -48,7 +48,43 @@ public class CodingBatRecursionMethods {
        } else {
          return fibonacci(n - 1) + fibonacci(n - 2);
        }
-     } 
+     }
+
+     /*
+      * We have bunnies standing in a line, numbered 1, 2 ... n. The odd bunnies
+      * (1, 3, ... n) have the normal two ears. The even bunnies (2, 4, ... n)
+      * we'll say have 3 ears, because they each have a raised foot. Recursively
+      * return the number of ears in the bunny line 1, 2, ... n (without loops or
+      * multiplication).
+      */
+      public static int bunnyEars_2(int bunnies) {
+        if (bunnies == 1) {
+          return 2;
+        } else if (bunnies == 0) {
+          return 0;
+        } else {
+          if (bunnies % 2 == 0) {
+            return 3 + bunnyEars_2(bunnies - 1);
+          }
+          return 2 + bunnyEars_2(bunnies - 1);
+        }
+      }
+
+      /*
+       * We have a triable made of blocks. The topmost row has 1 block, the next
+       * row down has 2 blocks, the next row has 3 block, and so on. compute
+       * recursively (no loops or multiplication) the total number of blocks in
+       * such a triangle with the given number of rows.
+       */
+       public static int triangle(int rows) {
+         if (rows == 0) {
+           return 0;
+         } else if (rows == 1) {
+           return 1;
+         } else {
+           return rows + triangle(rows - 1);
+         }
+       }
 
 
 }
