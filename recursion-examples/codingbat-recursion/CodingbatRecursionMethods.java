@@ -113,4 +113,21 @@ public class CodingbatRecursionMethods {
              return count7(n / 10);
            }
          }
+
+         /*
+          * Given a non-negative int n, compute recursively (with no loops) the count of
+          * occurrences of 8 as a digit, except that an 8 with another 8 immediately to its
+          * left counts twice (see count7() description above).
+          */
+          public static int count8(int n) {
+            if (n == 0) {
+              return 0;
+            } else if (n >= 88 && n % 100 == 88) {
+              return 2 + count8(n / 10);
+            } else if (n % 10 == 8) {
+              return 1 + count8(n / 10);
+            } else {
+              return count8(n / 10);
+            }
+          }
 }
