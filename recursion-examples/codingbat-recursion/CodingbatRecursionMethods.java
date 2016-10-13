@@ -130,4 +130,16 @@ public class CodingbatRecursionMethods {
               return count8(n / 10);
             }
           }
+
+          /*
+           * Given a base and an n that are both 1 or more, compute recursively (no loops)
+           * the value of base to the n power.
+           */
+           public static int powerN(int base, int n) {
+             if (n == 0) {
+               return 1;
+             } else {
+               return base * powerN(base, n - 1);
+             }
+           }
 }
