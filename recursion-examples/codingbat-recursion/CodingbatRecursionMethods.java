@@ -86,5 +86,31 @@ public class CodingbatRecursionMethods {
          }
        }
 
+       /*
+        * Given a non-negative int n, return the sum of its digits recursively (no loops).
+        * Note that mod (%) by 10 yields the rightmost digit, while divide (/) removes the
+        * rightmost digit.
+        */
+        public static int sumDigits(int n) {
+          if (n >= 0 && n < 10) {
+            return n;
+          } else {
+            return sumDigits(n % 10) + sumDigits(n / 10);
+          }
+        }
 
+        /*
+         * Given a non-negative int n, return the count of the occurrences of 7 as a digit,
+         * without using loops. Note that mod (%) by 10 yields the rightmost digit, while
+         * divide (/) by 10 removes the rightmost digit.
+         */
+         public static int count7(int n) {
+           if (n == 0) {
+             return 0;
+           } else if (n % 10 == 7) {
+             return 1 + count7(n / 10);
+           } else {
+             return count7(n / 10);
+           }
+         }
 }
