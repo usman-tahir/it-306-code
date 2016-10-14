@@ -45,7 +45,7 @@ public class Rectangle {
 
    public String toString() {
      String output = "This rectangle has a width of " + this.getWidth() + " and a length of " + this.getLength();
-     output += "\nIts area is " + this.getArea() + " and its perimeter is " + this.getPerimeter() + "";
+     output += "\nIts area is " + this.getArea() + " and its perimeter is " + this.getPerimeter() + "\n";
      return output;
    }
 
