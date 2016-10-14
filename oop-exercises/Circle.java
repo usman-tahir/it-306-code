@@ -46,7 +46,7 @@ public class Circle {
    }
 
    public String toString() {
-     return "This circle is " + this.getColor() + " with a radius of " + this.getRadius() + " and an area of " + this.getArea() + "\n";
+     return "This circle is " + this.getColor() + " with a radius of " + this.getRadius() + " and an area of " + this.getArea();
    }
 
 }
