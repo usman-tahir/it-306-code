@@ -56,7 +56,7 @@ public class InvoiceItem {
 
    public String toString() {
      String output = "Invoice item information\n";
-     output += "Item ID: " + this.getId() + "\nDescription: " + this.getDescription() + "\nQuantity: $" + this.getQuantity();
+     output += "Item ID: " + this.getId() + "\nDescription: " + this.getDescription() + "\nQuantity: " + this.getQuantity();
      output += "\nUnit Price: $" + this.getUnitPrice() + "\nTotal: $" + this.getTotal() + "\n";
      return output;
    }
