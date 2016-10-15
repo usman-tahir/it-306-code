@@ -11,7 +11,7 @@ public class Employee {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.salary = salary;
+    this.salary = salary; // Per month basis
   }
 
   /**
@@ -58,8 +58,12 @@ public class Employee {
      return (this.getSalary() * 12);
    }
 
-   // Raise the salary by a set percentage (converted to a double first)
-   // NOTE: This does not set the instance's salary
+   /**
+    * Raise the salary of an employee by a set amount. This only returns a value,
+    * and must be used in conjunction with a set method (setSalary()), in order to
+    * be effective. This raise only applies to the base salary (not the annual salary)
+    * and must be used as such (the change filters into the annual salary)
+    */
    public int raiseSalary(int percent) {
      int currentSalary;
      double raiseAmount; 
@@ -69,8 +73,9 @@ public class Employee {
    }
 
    public String toString() {
-     String output = "Employee Information:\n";
+     String output = "Employee Information\n";
      output += "ID: " + this.getId() + "\nName: " + this.getName() + "\nSalary: $" + this.getSalary() + "\nAnnual Salary: " + this.getAnnualSalary() + "\n";
+     return output;
    }
 
 }
