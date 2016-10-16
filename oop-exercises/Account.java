@@ -67,7 +67,7 @@ public class Account {
   public String toString() {
     String output = "Account Information\n";
     output += "Account ID: " + this.getId() + "\nAccount holder's name: " + this.getName() + "\nCurrent balance: $" + this.getBalance();
-    return output;
+    return output + "\n";
   }
 
 }
