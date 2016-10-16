@@ -1,9 +1,15 @@
-
+/**
+* Divide n by base of 16
+* Remainder is converted to hex (symbol or number between 9).
+* Base case: n is less than 16 therefore being able to be converted into a number or a symbol. Because if it is less
+* than 16 it can't boil down into a smaller number because we're dealing with hex which is base 16.
+* Recurse case: n is greater than 16 therefore being able to be simplified in order to be converted into a symbol
+*/
 public class ConvertHexToDec {
 
   public static void main(String[] args) {
 
-    System.out.println(convert(15));
+    System.out.println(convert(909));
 
   }
 
