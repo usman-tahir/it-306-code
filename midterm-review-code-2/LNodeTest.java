@@ -14,6 +14,9 @@ public class LNodeTest {
     }
 
     printLinkedList(head);
+    head = addToHead(head, new LNode(-1, null));
+    printLinkedList(head);
+    // System.out.println(search(5, head));
 
   }
 
@@ -29,6 +32,39 @@ public class LNodeTest {
       current = current.getNext();
     } while (current != null);
 
+  }
+
+  public static boolean search(Integer searchFor, LNode head) {
+    LNode current = head;
+    
+    if (current == null) {
+      System.out.println("This Linked Node has no other chains.");
+      return false;
+    }
+
+    do {
+      if (searchFor.equals(current.getData())) {
+        return true;
+      }
+      current = current.getNext();
+    } while (current != null);
+
+    return false;
+
+  }
+
+  public static LNode addToHead(LNode head, LNode node) {
+    LNode oldHead = head;
+    head = node;
+    head.setNext(oldHead);
+    return head;
+  }
+
+  public static LNode addToTail(LNode tail, LNode node) {
+    LNode oldTail = tail;
+    tail = node;
+    oldTail.setNext(tail);
+    return tail;
   }
 
 }
