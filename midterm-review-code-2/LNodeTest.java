@@ -18,6 +18,9 @@ public class LNodeTest {
     printLinkedList(head);
     // System.out.println(search(5, head));
 
+    LNode tail = LNode.getTail(head);
+    System.out.println("Data for tail: " + tail.getData());
+
   }
 
   public static void printLinkedList(LNode head) {

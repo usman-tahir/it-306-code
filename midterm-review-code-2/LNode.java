@@ -38,4 +38,12 @@ public class LNode {
     return true;
   }
 
+  public static LNode getTail(LNode head) {
+    LNode current = head;
+    while (current.hasNext()) {
+      current = current.getNext();
+    }
+    return current;
+  }
+
 }
