@@ -9,6 +9,11 @@ public class LNode {
     this.link = link;
   }
 
+  public LNode() {
+    this.data = 0;
+    this.link = null;
+  }
+
   public Integer getData() {
     return this.data;
   }
@@ -30,6 +35,15 @@ public class LNode {
       return false;
     }
     return true;
+  }
+
+  public String toString() {
+    String output = "":
+    output += "This node has an Integer value of " + this.data;
+    if (this.hasNext()) {
+      output += " and a pointer to the next LNode, which is " + this.getNext().toString();
+    }
+    return output;
   }
 
 }
