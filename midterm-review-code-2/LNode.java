@@ -28,6 +28,7 @@ public class LNode {
 
   public void setNext(LNode link) {
     this.link = link;
+    // System.out.println(link);
   }
 
   public boolean hasNext() {
@@ -35,17 +36,6 @@ public class LNode {
       return false;
     }
     return true;
-  }
-
-  public String toString() {
-    String output = "";
-    output += "This node has an Integer value of " + this.data;
-    if (this.hasNext()) {
-      output += " and a pointer to the next LNode, which is " + this.getNext().toString();
-    } else {
-      output += " and is currently the tail node.";
-    }
-    return output;
   }
 
 }
