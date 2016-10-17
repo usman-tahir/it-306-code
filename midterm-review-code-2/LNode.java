@@ -38,10 +38,12 @@ public class LNode {
   }
 
   public String toString() {
-    String output = "":
+    String output = "";
     output += "This node has an Integer value of " + this.data;
     if (this.hasNext()) {
       output += " and a pointer to the next LNode, which is " + this.getNext().toString();
+    } else {
+      output += " and is currently the tail node.";
     }
     return output;
   }
