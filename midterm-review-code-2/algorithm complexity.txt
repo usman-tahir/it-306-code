@@ -1,0 +1,9 @@
+Algorithm,Data Structure,Time Complexity
+Quicksort,Array,Best (O(nlog(n))) Average (O(nlog(n))) Worst (O(n^2))
+Mergesort,Array,Best (O(nlog(n))) Average (O(nlog(n))) Worst (O(nlog(n)))
+Heapsort,Array,Best (O(nlog(n))) Average (O(nlog(n))) Worst (O(nlog(n)))
+Bubble Sort,Array,Best (O(n)) Average (O(n^2)) Worst (O(n^2))
+Insertion Sort,Array,Best (O(n)) Average (O(n^2)) Worst (O(n^2))
+Selection Sort,Array,Best (O(n^2)) Average (O(n^2)) Worst (O(n^2))
+Bucket Sort,Array,Best (O(n+k)) Average (O(n+k)) Worst (O(n^2))
+Radix Sort,Array,Best (O(nk)) Average (O(nk)) Worst (O(nk))
