@@ -16,6 +16,9 @@ public class LNodeTest {
     printLinkedList(head);
     head = addToHead(head, new LNode(-1, null));
     printLinkedList(head);
+
+    LNode reversedList = reverseLinkedList(head);
+    printLinkedList(reversedList);
     // System.out.println(search(5, head));
 
     LNode tail = LNode.getTail(head);
@@ -68,6 +71,19 @@ public class LNodeTest {
     tail = node;
     oldTail.setNext(tail);
     return tail;
+  }
+
+  public static LNode reverseLinkedList(LNode head) {
+    LNode current = head;
+    LNode previous = null;
+    LNode next = null;
+    while (current != null) {
+      next = current.getNext();
+      current.setNext(previous);
+      previous = current;
+      current = next;
+    }
+    return previous;
   }
 
 }
