@@ -26,8 +26,12 @@ public class LNodeTest {
     head = insertAtPosition(head, -1, 1);
     printLinkedList(head);
 
+    /*
     LNode reversedList = reverseLinkedList(head);
     printLinkedList(reversedList);
+    */
+    deleteAtPosition(head, 1);
+    printLinkedList(head);
 
     /*
     System.out.println("The length of the linked list is: " + getLength(current));
@@ -50,7 +54,6 @@ public class LNodeTest {
       current = current.getNext();
     } while (current != null);
     System.out.print("null\n");
-
   }
 
   public static boolean search(Integer searchFor, LNode head) {
@@ -67,9 +70,7 @@ public class LNodeTest {
       }
       current = current.getNext();
     } while (current != null);
-
     return false;
-
   }
 
   public static LNode addToHead(LNode head, LNode node) {
@@ -136,7 +137,32 @@ public class LNodeTest {
       previous.setNext(newNode);
       return head;
     }
+  }
 
+  private static LNode deleteAtPosition(LNode head, int position) {
+    int size = getLength(head);
+    if (position > size || position < 1) {
+      return head;
+    }
+
+    if (position == 1) {
+      LNode temp = head;
+      head = head.getNext();
+      temp.setNext(null);
+      return temp;
+    } else {
+      LNode previous = head;
+      int count = 1;
+      while (count < position - 1) {
+        previous = previous.getNext();
+        count += 1;
+      }
+
+      LNode current = previous.getNext();
+      previous.setNext(current.getNext());
+      current.setNext(null);
+      return current;
+    }
   }
 
 }
