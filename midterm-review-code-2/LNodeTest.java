@@ -12,19 +12,27 @@ public class LNodeTest {
       current.setNext(temp);
       current = current.getNext();
     }
-
+    /*
     printLinkedList(head);
     head = addToHead(head, new LNode(-1, null));
     printLinkedList(head);
+    */
 
+    /*
     LNode reversedList = reverseLinkedList(head);
     printLinkedList(reversedList);
+    */
     // System.out.println(search(5, head));
 
+    head = insertAtPosition(head, 12, 3);
+    printLinkedList(head);
+
+    /*
     System.out.println("The length of the linked list is: " + getLength(current));
 
     LNode tail = LNode.getTail(head);
     System.out.println("Data for tail: " + tail.getData());
+    */
 
   }
 
@@ -101,6 +109,31 @@ public class LNodeTest {
       current = current.getNext();
     }
     return count;
+  }
+
+  public static LNode insertAtPosition(LNode head, int data, int position) {
+    int size = getLength(head);
+    if (position > size + 1 || position < 1) {
+      return head;
+    }
+
+    LNode newNode = new LNode(data, null);
+    if (position == 1) {
+      newNode.setNext(head);
+      return newNode;
+    } else {
+      LNode previous = head;
+      int count = 1;
+      while (count < position - 1) {
+        previous = previous.getNext();
+        count += 1;
+      }
+      LNode current = previous.getNext();
+      newNode.setNext(current);
+      previous.setNext(newNode);
+      return head;
+    }
+
   }
 
 }
