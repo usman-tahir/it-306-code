@@ -23,9 +23,11 @@ public class LNodeTest {
     printLinkedList(reversedList);
     */
     // System.out.println(search(5, head));
-
-    head = insertAtPosition(head, 12, 3);
+    head = insertAtPosition(head, -1, 1);
     printLinkedList(head);
+
+    LNode reversedList = reverseLinkedList(head);
+    printLinkedList(reversedList);
 
     /*
     System.out.println("The length of the linked list is: " + getLength(current));
@@ -44,9 +46,10 @@ public class LNodeTest {
     }
 
     do {
-      System.out.println("Data: [" + current.getData() + "] next: " + current.hasNext());
+      System.out.print(current.getData() + " -> ");
       current = current.getNext();
     } while (current != null);
+    System.out.print("null\n");
 
   }
 
