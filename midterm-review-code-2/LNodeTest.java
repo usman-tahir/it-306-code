@@ -21,6 +21,8 @@ public class LNodeTest {
     printLinkedList(reversedList);
     // System.out.println(search(5, head));
 
+    System.out.println("The length of the linked list is: " + getLength(current));
+
     LNode tail = LNode.getTail(head);
     System.out.println("Data for tail: " + tail.getData());
 
@@ -84,6 +86,21 @@ public class LNodeTest {
       current = next;
     }
     return previous;
+  }
+
+  public static int getLength(LNode head) {
+    if (head.getNext() == null || head == null) {
+      return 0;
+    }
+
+    int count = 0;
+    LNode current = head;
+
+    while (current != null) {
+      count += 1;
+      current = current.getNext();
+    }
+    return count;
   }
 
 }
