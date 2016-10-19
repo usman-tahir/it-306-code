@@ -1,16 +1,16 @@
 
-public class Student {
+public class StudentNode {
   private Student studentData;
-  private Node link;
+  private StudentNode link;
 
   // Default Constructor
-  public Node() {
+  public StudentNode() {
     this.studentData = new Student();
     this.link = null;
   }
 
   // Parameterized Constructor
-  public Node(Student studentData, Node link) {
+  public StudentNode(Student studentData, StudentNode link) {
     this.studentData = studentData;
     this.link = link;
   }
@@ -28,7 +28,7 @@ public class Student {
     return this.link;
   }
 
-  public void setLink(StudentData link) {
+  public void setLink(StudentNode link) {
     this.link = link;
   }
 
