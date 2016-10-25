@@ -9,7 +9,16 @@ public class StudentNodeTest {
     StudentNode s1 = new StudentNode(studentOne, null);
     StudentNode s2 = new StudentNode(studentTwo, null);
     s1.setLink(s2);
-    System.out.println(s1.getStudentData());
+    printStudentList(s1);
 
   }
+
+  public static void printStudentList(StudentNode head) {
+    StudentNode current = head;
+    do {
+      System.out.println(current.getStudentData());
+      current = current.getLink();
+    } while (current.getLink() != null);
+  }
+
 }
