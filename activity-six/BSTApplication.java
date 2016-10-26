@@ -1,7 +1,7 @@
 
 import javax.swing.JOptionPane;
 
-public class BSTapplication {
+public class BSTApplication {
 	//TODO  Try inserting 5,2,-4,3,12,9,21,19
 	//TODO search for -4
 	//TODO delete 12, 19,-4

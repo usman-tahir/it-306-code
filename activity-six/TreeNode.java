@@ -63,7 +63,7 @@ public class TreeNode {
     this.right = right;
   }
 
-  public int getNumberOfChildren() {
+  public int getNumChildren() {
     return this.numberOfChildren;
   }
 
