@@ -55,6 +55,10 @@ public class BinaryMinHeap {
     return ((nodeIndex - 1) / 2);
   }
 
+  public int[] getData() {
+    return this.data;
+  }
+
   public class HeapException extends RuntimeException {
     public HeapException(String message) {
       super(message);
