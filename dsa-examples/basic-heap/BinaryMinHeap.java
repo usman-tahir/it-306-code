@@ -31,6 +31,44 @@ public class BinaryMinHeap {
     }
   }
 
+  public void removeMin() {
+    if (this.isEmpty()) {
+      throw new HeapException("This Min Heap is empty.");
+    } else {
+      this.data[0] = this.data[this.heapSize - 1];
+      this.heapSize--;
+      if (this.heapSize > 0) {
+        siftDown(0);
+      }
+    }
+  }
+
+  private void siftDown(int nodeIndex) {
+    int leftChildIndex, rightChildIndex, minIndex, temp;
+    leftChildIndex = getLeftChildIndex(nodeIndex);
+    rightChildIndex = getRightChildIndex(nodeIndex);
+    if (rightChildIndex >= this.heapSize) {
+      if (leftChildIndex >= this.heapSize) {
+        return;
+      } else {
+        minIndex = leftChildIndex;
+      }
+    } else {
+      if (this.data[leftChildIndex] <= this.data[rightChildIndex]) {
+        minIndex = leftChildIndex;
+      } else {
+        minIndex = rightChildIndex;
+      }
+    }
+
+    if (this.data[nodeIndex] > this.data[minIndex]) {
+      temp = this.data[minIndex];
+      this.data[minIndex] = this.data[nodeIndex];
+      this.data[nodeIndex] = temp;
+      siftDown(minIndex);
+    }
+  }
+
   public int getMinimum() {
     if (this.isEmpty()) {
       throw new HeapException("The Min Heap is currently empty.");
@@ -43,12 +81,12 @@ public class BinaryMinHeap {
     return (this.heapSize == 0);
   }
 
-  private int getLeftChildren(int nodeIndex) {
-    return (2 * (nodeIndex + 1));
+  private int getLeftChildIndex(int nodeIndex) {
+    return 2 * nodeIndex + 1;
   }
 
-  private int getRightChildren(int nodeIndex) {
-    return (2 * (nodeIndex + 2));
+  private int getRightChildIndex(int nodeIndex) {
+    return 2 * nodeIndex + 2;
   }
 
   private int getParentIndex(int nodeIndex) {
