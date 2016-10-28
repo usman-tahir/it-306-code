@@ -309,7 +309,14 @@ public class BinarySearchTree implements Iterable {
 	
 	public String postorder(TreeNode p){
 		//TODO: traverse the tree postorder and print the node by calling task(...) method
-		return "Acitivity 7: Complete \" postorder \" method in class BinarySearchTree.java";
+		if(p==null) return "Empty!";
+		String left_subtree=""; 
+		String right_subtree="";
+		String middle = p.getElement() + ", ";
+		if(p.getLeft()!=null) left_subtree = preorder(p.getLeft());
+		if(p.getRight()!=null) right_subtree = preorder(p.getRight());
+		//return middle+left_subtree + right_subtree; 
+		return left_subtree + right_subtree + middle;
 	}
 	
 	
