@@ -16,7 +16,7 @@
   <target name="clean" description="delete .class files in ./dist/">
     <delete>
       <fileset dir="${build.dir}">
-        <include name="**/*.class">
+        <include name="**/*.class"/>
       </fileset>
     </delete>
   </target>

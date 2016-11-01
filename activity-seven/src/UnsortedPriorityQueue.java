@@ -16,10 +16,11 @@ public class UnsortedPriorityQueue {
   public PQEntry removeMin() {
     if (this.queue.isEmpty()) {
       System.out.println("The queue is empty.");
+      return null;
     } else {
       int min = 0;
       for (int i = 1; i < this.queue.size(); i += 1) {
-        if (this.queue.get(min).getKey() > queue.get(i).getKey()) {
+        if (this.queue.get(min).getKey() > this.queue.get(i).getKey()) {
           min = 1;
         } else if (this.queue.get(min).getKey() == this.queue.get(i).getKey()) {
           if (min > i) {

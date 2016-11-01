@@ -4,10 +4,6 @@ public class PQEntry {
   private Flight val;
   public static final long DEFAULT_KEY = 1000000; // Indicates a very low priority
 
-  public PQEntry {
-
-  }
-
   public Flight getValue() {
     return this.val;
   }
@@ -23,6 +19,7 @@ public class PQEntry {
 
   private void calcKey() {
     // TODO
+    System.out.println("To be implemented");
   }
 
   public String toString() {
