@@ -20,4 +20,12 @@
       </fileset>
     </delete>
   </target>
+
+  <target name="run" description="run FlightApplication.java">
+    <java classname="FlightApplication">
+      <classpath>
+        <pathelement location="./dist"/>
+      </classpath>
+    </java>
+  </target>
 </project>
