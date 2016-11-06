@@ -42,14 +42,13 @@ public class UnsortedPriorityQueue implements Comparator {
     return queue.size();
   }
   public int compare(Object o1, Object o2){
-        PQEntry f1 = (PQEntry) o1; 
-        PQEntry f2 = (PQEntry) o2;
-
-        if( f1 == null || f2 == null ){
-            if( f1 == f2 ) return 0;
-            else if( f2 == null) return +1;
-                else return -1;
-        }
+    PQEntry f1 = (PQEntry) o1; 
+    PQEntry f2 = (PQEntry) o2;
+    if( f1 == null || f2 == null ){
+      if( f1 == f2 ) return 0;
+        else if( f2 == null) return +1;
+          else return -1;
+    }
 
     Long i1 = (Long) f1.getKey();
     Long i2 = (Long) f2.getKey();

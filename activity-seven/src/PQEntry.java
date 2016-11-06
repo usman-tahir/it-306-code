@@ -18,8 +18,11 @@ public class PQEntry {
   }
 
   private void calcKey() {
-    // TODO
-    System.out.println("To be implemented");
+    if (this.val.isConnectingFlight()) {
+      this.key = this.val.getConnectionPeriod() * DEFAULT_KEY;
+    } else {
+      this.key = DEFAULT_KEY;
+    }
   }
 
   public String toString() {

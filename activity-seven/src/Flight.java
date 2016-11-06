@@ -7,7 +7,7 @@ public class Flight {
   public Flight(String flightNumber, boolean connectingFlight, long connectionPeriod) {
     this.flightNumber = flightNumber;
     this.connectingFlight = connectingFlight;
-    this.connectingPeriod = connectingPeriod;
+    this.connectionPeriod = connectionPeriod;
   }
 
   public boolean setConnectionPeriod(long p) {
