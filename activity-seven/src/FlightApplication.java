@@ -5,5 +5,8 @@ public class FlightApplication {
     flights.add(new Flight("0001", false, 0));
     flights.add(new Flight("0002", true, 365));
     flights.add(new Flight("0003", true, 943));
+
+     while (!flights.isEmpty())
+            System.out.println(flights.removeMin());
   }
 }

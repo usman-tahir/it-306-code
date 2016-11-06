@@ -19,7 +19,7 @@ public class PQEntry {
 
   private void calcKey() {
     if (this.val.isConnectingFlight()) {
-      this.key = this.val.getConnectionPeriod() * DEFAULT_KEY;
+      this.key = this.val.getConnectionPeriod() % DEFAULT_KEY;
     } else {
       this.key = DEFAULT_KEY;
     }
