@@ -41,9 +41,9 @@ public class UnsortedPriorityQueue implements Comparator {
   public int size() {
     return queue.size();
   }
-  public int compare(Object o1,, Object o2){
-        Flight f1 = (Flight) o1; 
-        Flight f2 = (Flight) o2;
+  public int compare(Object o1, Object o2){
+        PQEntry f1 = (PQEntry) o1; 
+        PQEntry f2 = (PQEntry) o2;
 
         if( f1 == null || f2 == null ){
             if( f1 == f2 ) return 0;
@@ -51,8 +51,8 @@ public class UnsortedPriorityQueue implements Comparator {
                 else return -1;
         }
 
-    Integer i1 = (Integer) f1.getPriority();
-    Integer i2 = (Integer) f2.getPriority();
+    Long i1 = (Long) f1.getKey();
+    Long i2 = (Long) f2.getKey();
     return i2.compareTo(i1);
     }
 }
