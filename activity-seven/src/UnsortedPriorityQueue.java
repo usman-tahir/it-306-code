@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class UnsortedPriorityQueue {
+public class UnsortedPriorityQueue implements Comparator {
   private LinkedList<PQEntry> queue;
 
   public UnsortedPriorityQueue() {
@@ -41,4 +41,18 @@ public class UnsortedPriorityQueue {
   public int size() {
     return queue.size();
   }
+  public int compare(Object o1,, Object o2){
+        Flight f1 = (Flight) o1; 
+        Flight f2 = (Flight) o2;
+
+        if( f1 == null || f2 == null ){
+            if( f1 == f2 ) return 0;
+            else if( f2 == null) return +1;
+                else return -1;
+        }
+
+    Integer i1 = (Integer) f1.getPriority();
+    Integer i2 = (Integer) f2.getPriority();
+    return i2.compareTo(i1);
+    }
 }
