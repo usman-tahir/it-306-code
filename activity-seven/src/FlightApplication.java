@@ -1,6 +1,9 @@
 
 public class FlightApplication {
   public static void main(String[] args) {
-    System.out.println("TODO: Implement FlightApplication.java");
+    UnsortedPriorityQueue flights = new UnsortedPriorityQueue();
+    flights.add(new Flight("0001", false));
+    flights.add(new Flight("0002", true));
+    flights.add(new Flight("0003", true));
   }
 }
