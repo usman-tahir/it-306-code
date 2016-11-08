@@ -1,4 +1,4 @@
-
+//
 public class Flight {
   private String flightNumber;
   private boolean connectingFlight;
