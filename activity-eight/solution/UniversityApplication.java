@@ -15,6 +15,26 @@ public class UniversityApplication {
     return s;
   }
 
+  retrieveStudent(){
+    
+  }
+
+  addCourse(){
+
+  }
+
+  addGrade(){
+
+  }
+
+  getCourse(){
+
+  }
+
+  getGrade(){
+
+  }
+
   public static String getName() {
     String name = "";
     do {
