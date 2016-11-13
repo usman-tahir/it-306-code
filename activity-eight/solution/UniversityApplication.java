@@ -37,7 +37,7 @@ public class UniversityApplication {
   public static void retrieveStudent(int id, Map<Integer, Student> all){
     Iterator i = all.entrySet().iterator();
     while (i.hasNext()) {
-      System.out.println(((Entry<Integer, Student>)i.next()).getValue().toString() + "\n");
+      JOptionPane.showMessageDialog(null, ((Entry<Integer, Student>)i.next()).getValue().toString() + "\n");
     }
   }  
   public static Student addStudent() {
@@ -78,21 +78,26 @@ public class UniversityApplication {
     do {
       major = JOptionPane.showInputDialog("Please enter a major for this student");
       if (isEmpty(major)) {
-        JOptionPane.showMessageDialog(null, "Please enter a non-blank address.");
+        JOptionPane.showMessageDialog(null, "Please enter a non-blank major.");
       }
     } while (isEmpty(major));
     return major;
   }
 
   public static int getIdToPrint() {
-    String major = "";
+    int studentId = -1;
+    int numberOfStudents = Student.getTotalStudents();
     do {
-      major = JOptionPane.showInputDialog("Please enter an address for this student");
-      if (isEmpty(major)) {
-        JOptionPane.showMessageDialog(null, "Please enter a non-blank address.");
+      try {
+        studentId = Integer.parseInt(JOptionPane.showInputDialog("Please enter a student ID for lookup (1 - " + numberOfStudents + "):"));
+        if (studentId < numberOfStudents || studentId > numberOfStudents) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid student ID.");
+        }
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Please enter a numeric ID.");
       }
-    } while (isEmpty(major));
-    return Integer.parseInt(major);
+    } while (studentId < numberOfStudents || studentId > numberOfStudents);
+    return studentId;
   }
 
   public static void getCourseAndGrade(Student s) {
