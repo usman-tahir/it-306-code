@@ -89,7 +89,7 @@ public class Student {
   public String toString() {
     String output = "--- Student Information ---\n";
     output += "ID: " + this.getId() + "\nName: " + this.getName() + "\nAddress: " + this.getAddress();
-    output += "\nMajor: " + this.getMajor() + "\nThis student is currently taking " + this.getNumberOfCourses() + " courses:";
+    output += "\nMajor: " + this.getMajor() + "\nThis student is currently taking " + this.getNumberOfCourses() + " courses:\n";
     for (int i = 0; i < this.numberOfCourses; i += 1) {
       output += this.courses[i] + " (Grade: " + this.courseGrades[i] + ")\n";
     }

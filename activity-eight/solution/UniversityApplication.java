@@ -74,7 +74,7 @@ public class UniversityApplication {
   public static String getMajor() {
     String major = "";
     do {
-      major = JOptionPane.showInputDialog("Please enter an address for this student");
+      major = JOptionPane.showInputDialog("Please enter a major for this student");
       if (isEmpty(major)) {
         JOptionPane.showMessageDialog(null, "Please enter a non-blank address.");
       }
@@ -91,9 +91,6 @@ public class UniversityApplication {
         grade = Double.parseDouble(JOptionPane.showInputDialog("Enter the grade for this course"));
       } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Please enter a positive, numeric grade.");
-      }
-      if (!s.setCourse(grade, course)) {
-        JOptionPane.showMessageDialog(null, "Please enter a valid course (from the list) and grade (greater than or equal to 0.00).");
       }
     } while (!s.setCourse(grade, course));
   }
