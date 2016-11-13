@@ -1,3 +1,11 @@
+/**
+ * Activity Eight (Class Activity/Module 9)
+ * Usman Tahir, Phillip Ramirez
+ * IT 306, Setareh Rafatirad
+ *
+ * Known issue: Small search bug with the ID lookup
+*/
+
 
 import java.util.*;
 import javax.swing.JOptionPane;
