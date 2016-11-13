@@ -1,7 +1,7 @@
 
 import java.util.*;
 import javax.swing.JOptionPane;
-
+import java.util.Map.Entry;
 public class UniversityApplication {
   public static void main(String[] args) {
     Map<Integer, Student> studentRecords = new HashMap<Integer, Student>();
@@ -18,6 +18,7 @@ public class UniversityApplication {
             studentRecords.put(s.getId(), s);
             break;
           case 2:
+            retrieveStudent(1, studentRecords);
             break;
           case 3:
             System.exit(0);
@@ -31,6 +32,12 @@ public class UniversityApplication {
     } while (true);
 
   }
+  public static void retrieveStudent(int id, Map<Integer, Student> all){
+    Iterator i = all.entrySet().iterator();
+    while (i.hasNext()) {
+      System.out.println(((Entry<Integer, Student>)i.next()).getValue().toString() + "\n");
+    }
+  }  
   public static Student addStudent() {
     Student s = new Student();
     s.setName(getName());
