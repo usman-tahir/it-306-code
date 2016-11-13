@@ -7,6 +7,8 @@ public class UniversityApplication {
     Map<String, Student> studentRecords = new HashMap<String, Student>();
     String menu = "1. Add a new student\n2. Display a student's information\n3. Exit";
     int option = 0;
+    id = 1;
+    retrieveStudent(id, studentRecords);
 
   }
   public static Student addStudent() {
@@ -15,24 +17,21 @@ public class UniversityApplication {
     return s;
   }
 
-  retrieveStudent(){
-    
-  }
+  public void retrieveStudent(int id, Map<String, Student> studentRecords){
+    Iterator i = null;
+    if (!map.isEmpty()) {
+      i = map.entrySet().iterator();
+      while (i.hasNext()) {
+        System.out.println(i.next());
+      }
+      System.out.println("\n\nPrinting key set:");
+      i = map.keySet().iterator();
+      while (i.hasNext()) {
+        System.out.println(i.next());
+      }
+    }
 
-  addCourse(){
-
-  }
-
-  addGrade(){
-
-  }
-
-  getCourse(){
-
-  }
-
-  getGrade(){
-
+    return student;
   }
 
   public static String getName() {
