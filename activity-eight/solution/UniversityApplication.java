@@ -90,7 +90,7 @@ public class UniversityApplication {
     do {
       try {
         studentId = Integer.parseInt(JOptionPane.showInputDialog("Please enter a student ID for lookup (1 - " + numberOfStudents + "):"));
-        if (studentId < numberOfStudents || studentId > numberOfStudents) {
+        if (studentId <= 0 || studentId > numberOfStudents) {
           JOptionPane.showMessageDialog(null, "Please enter a valid student ID.");
         }
       } catch (Exception e) {
