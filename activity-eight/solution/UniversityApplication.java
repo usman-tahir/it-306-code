@@ -8,6 +8,7 @@ public class UniversityApplication {
     String menu = "1. Add a new student\n2. Display a student's information\n3. Exit";
     int option = 0;
     int id = 1;
+    int idToPrint = 0;
 
     do {
       try {
@@ -18,6 +19,7 @@ public class UniversityApplication {
             studentRecords.put(s.getId(), s);
             break;
           case 2:
+            idToPrint = getIdToPrint();
             retrieveStudent(1, studentRecords);
             break;
           case 3:
@@ -80,6 +82,17 @@ public class UniversityApplication {
       }
     } while (isEmpty(major));
     return major;
+  }
+
+  public static int getIdToPrint() {
+    String major = "";
+    do {
+      major = JOptionPane.showInputDialog("Please enter an address for this student");
+      if (isEmpty(major)) {
+        JOptionPane.showMessageDialog(null, "Please enter a non-blank address.");
+      }
+    } while (isEmpty(major));
+    return Integer.parseInt(major);
   }
 
   public static void getCourseAndGrade(Student s) {
