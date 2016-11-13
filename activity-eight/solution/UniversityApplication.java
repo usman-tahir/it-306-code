@@ -4,15 +4,41 @@ import javax.swing.JOptionPane;
 
 public class UniversityApplication {
   public static void main(String[] args) {
-    Map<String, Student> studentRecords = new HashMap<String, Student>();
+    Map<Integer, Student> studentRecords = new HashMap<Integer, Student>();
     String menu = "1. Add a new student\n2. Display a student's information\n3. Exit";
     int option = 0;
     int id = 1;
 
+    do {
+      try {
+        option = Integer.parseInt(JOptionPane.showInputDialog(menu));
+        switch (option) {
+          case 1:
+            Student s = addStudent();
+            studentRecords.put(s.getId(), s);
+            break;
+          case 2:
+            break;
+          case 3:
+            System.exit(0);
+          default:
+            JOptionPane.showMessageDialog(null, "Please enter a choice from the menu.");
+            break;
+        }
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Please enter a choice from the menu.");
+      }
+    } while (true);
+
   }
   public static Student addStudent() {
     Student s = new Student();
-
+    s.setName(getName());
+    s.setAddress(getAddress());
+    s.setMajor(getMajor());
+    do {
+      getCourseAndGrade(s);
+    } while (JOptionPane.showConfirmDialog(null, "Would you like to enter a course and grade for this student?") == JOptionPane.YES_OPTION);
     return s;
   }
 
