@@ -37,7 +37,10 @@ public class UniversityApplication {
   public static void retrieveStudent(int id, Map<Integer, Student> all){
     Iterator i = all.entrySet().iterator();
     while (i.hasNext()) {
-      JOptionPane.showMessageDialog(null, ((Entry<Integer, Student>)i.next()).getValue().toString() + "\n");
+      if(id==((Entry<Integer, Student>)i.next()).getValue().getId())
+      {
+        JOptionPane.showMessageDialog(null, ((Entry<Integer, Student>)i.next()).getValue().toString() + "\n");
+      }
     }
   }  
   public static Student addStudent() {
@@ -96,7 +99,7 @@ public class UniversityApplication {
       } catch (Exception e) {
         JOptionPane.showMessageDialog(null, "Please enter a numeric ID.");
       }
-    } while (studentId < numberOfStudents || studentId > numberOfStudents);
+    } while (studentId <= 0 || studentId > numberOfStudents);
     return studentId;
   }
 
