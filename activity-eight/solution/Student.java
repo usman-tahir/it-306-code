@@ -76,7 +76,7 @@ public class Student {
     }
 
     for (int i = 0; i < COURSE_LIST.length; i += 1) {
-      if (COURSE_LIST[i].equalsIgnoreCase(course)) {
+      if (COURSE_LIST[i].equalsIgnoreCase(course) && grade >= 0.00) {
         this.courseGrades[this.numberOfCourses] = grade;
         this.courses[this.numberOfCourses] = course;
         this.numberOfCourses += 1;
