@@ -1,5 +1,8 @@
 import java.lang.Iterator;
 
+/**
+  * An interface for a tree where nodes can have an arbitrary number of children
+*/
 public interface Tree<E> extends Iterable<E> {
   Position<E> root();
   Position<E> parent(Position<E> p) throws IllegalArgumentException;
