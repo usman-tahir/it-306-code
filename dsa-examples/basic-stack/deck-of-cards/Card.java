@@ -10,6 +10,12 @@ public class Card {
     this.color = "";
   }
 
+  public Card(String suit, String value) {
+    this.suit = suit;
+    this.value = value;
+    this.color = this.getColor();
+  }
+
   public String getSuit() {
     return this.suit;
   }
