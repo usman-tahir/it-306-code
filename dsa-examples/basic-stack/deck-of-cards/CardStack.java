@@ -1,33 +1,38 @@
+import java.util.ArrayList;
 
 public class CardStack {
   private int top;
-  private Card[] deck;
+  private ArrayList<Card> deck;
 
   public CardStack (int capacity) {
     if (capacity <= 0) {
       throw new IllegalArgumentException("You must place at least one card in the deck.");
     }
-    this.deck = new Card[capacity];
+    this.deck = new ArrayList<Card>(capacity);
     this.top = -1;
   }
 
-  public int getTop() {
+  public int top() {
     return this.top;
   }
 
+  public int size() {
+    return this.deck.size();
+  }
+
   public void push(Card card) {
-    if (this.top == this.deck.length) {
+    if (this.top == this.deck.size()) {
       throw new StackException("This deck of cards is already full.");
     }
     this.top++;
-    this.deck[this.top] = card;
+    this.deck.add(this.top, card);
   }
 
   public Card peek() {
     if (this.top == -1) {
       throw new StackException("This deck is empty.");
     }
-    return this.deck[this.top];
+    return this.deck.get(this.top);
   }
 
   public void pop() {
