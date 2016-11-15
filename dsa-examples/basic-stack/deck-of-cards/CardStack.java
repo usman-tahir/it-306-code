@@ -11,6 +11,10 @@ public class CardStack {
     this.top = -1;
   }
 
+  public int getTop() {
+    return this.top;
+  }
+
   public void push(Card card) {
     if (this.top == this.deck.length) {
       throw new StackException("This deck of cards is already full.");
