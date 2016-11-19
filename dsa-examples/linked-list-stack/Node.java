@@ -1,14 +1,14 @@
 
-public class Node<AnyType> {
-  public AnyType data;
-  public Node<AnyType> next;
+public class Node {
+  private int data;
+  private Node next;
 
-  public Node(AnyType data) {
+  public Node(int data) {
     this.data = data;
     this.next = null;
   }
 
-  public AnyType getData() {
+  public int getData() {
     return this.data;
   }
 
@@ -16,7 +16,7 @@ public class Node<AnyType> {
     return this.next;
   }
 
-  public void setData(AnyType data) {
+  public void setData(int data) {
     this.data = data;
   }
 
@@ -25,6 +25,6 @@ public class Node<AnyType> {
   }
 
   public boolean hasNext() {
-    return this.next != null;
+    return (this.next == null) ? (false) : (true);
   }
 }
