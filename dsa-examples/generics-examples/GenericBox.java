@@ -15,6 +15,6 @@ public class GenericBox<E> {
   }
 
   public String toString() {
-    return this.content + " ('" + content.getClass() + "')\n";
+    return this.content + " ['" + content.getClass() + "']\n";
   }
 }
