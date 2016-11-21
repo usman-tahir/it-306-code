@@ -50,14 +50,15 @@ public class EmployeeHandbook {
       b = new BufferedReader(new FileReader(filepath));
       while ((line = b.readLine()) != null) {
         String[] employee = line.split(splitBy);
+        if (!(employee[0].indexOf("e") == 0)) {
+          int employeeID = Integer.parseInt(employee[0]);
+          String firstName = employee[1];
+          String lastName = employee[2];
+          String department = employee[3];
 
-        int employeeID = Integer.parseInt(employee[0]);
-        String firstName = employee[1];
-        String lastName = employee[2];
-        String department = employee[3];
-
-        Employee e = new Employee(employeeID, firstName, lastName, department);
-        employeeHandbook.put(e.getEmployeeID(), e);
+          Employee e = new Employee(employeeID, firstName, lastName, department);
+          employeeHandbook.put(e.getEmployeeID(), e);
+        }
       }
     } catch (FileNotFoundException e) {
       e.printStackTrace();
