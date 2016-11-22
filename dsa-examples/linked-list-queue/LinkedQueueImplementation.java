@@ -42,7 +42,8 @@ public class LinkedQueueImplementation {
           break;
         case 6:
           System.out.println("Goodbye!");
-          break;
+          System.exit(0);
+          // break;
         default:
           System.out.println("Invalid menu choice. Please try again.");
           break;
