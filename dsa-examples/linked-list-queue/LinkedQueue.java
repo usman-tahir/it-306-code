@@ -30,12 +30,12 @@ public class LinkedQueue {
   }
 
   public void insert(int data) {
-    Node n = new Node(data, null);
+    Node pointer = new Node(data, null);
     if (this.last == null) {
-      this.setFirst(n);
-      this.setLast(n);
+      this.first = pointer;
+      this.last = pointer;
     } else {
-      this.last.setNext(n);
+      this.last.setNext(pointer);
       this.last = this.last.getNext();
     }
     this.size++;
@@ -43,27 +43,42 @@ public class LinkedQueue {
 
   public Node remove() {
     if (this.isEmpty()) {
-      throw new NoSuchElementException("Undeflow exception");
+      throw new NoSuchElementException("Error: Underflow exception");
     } else {
-      Node n = this.first;
-      this.first = n.getNext();
+      Node pointer = this.first;
+      this.first = pointer.getNext();
       if (this.first == null) {
         this.last = null;
       }
       this.size--;
-      return n;
+      return pointer;
     }
   }
 
   public Node peek() {
     if (this.isEmpty()) {
-      throw new NoSuchElementException("Underflow exception");
+      throw new NoSuchElementException("Error: Underflow exception");
     }
     return this.getFirst();
   }
 
   public boolean isEmpty() {
     return (this.getFirst() == null) ? (true) : (false);
+  }
+
+  public void display() {
+    System.out.print("LinkedQueue: ");
+    if (this.getSize() == 0) {
+      System.out.println("Empty.\n");
+      return;
+    } else {
+      Node index = this.getFirst();
+      while (index != this.getLast().getNext()) {
+        System.out.print(index.getData() + " ");
+        index = index.getNext();
+      }
+      System.out.println();
+    }
   }
 
   public class NoSuchElementException extends RuntimeException {

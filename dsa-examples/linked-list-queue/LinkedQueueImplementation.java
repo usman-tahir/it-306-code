@@ -8,7 +8,7 @@ public class LinkedQueueImplementation {
     String menu = "1. insert\n2. remove\n3. peek\n4. check empty\n5. size\n6. quit\n";
     int choice = -1;
     do {
-      System.out.println("Select a choice from the menu:\n" + menu);
+      System.out.print("Select a choice from the menu:\n" + menu);
       choice = keyboard.nextInt();
 
       switch (choice) {
@@ -47,6 +47,7 @@ public class LinkedQueueImplementation {
           System.out.println("Invalid menu choice. Please try again.");
           break;
       }
+      l.display();
     } while (choice != 6);
   }
 }
