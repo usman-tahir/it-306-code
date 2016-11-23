@@ -110,7 +110,7 @@ public class PriorityQueueImplementation {
     int size = p.getSize();
     int i;
 
-    for (i = 0; i < size; i += 1) {
+    for (i = 1; i < size + 1; i += 1) {
       System.out.println("Looking in index " + i);
       output += jobs[i].toString();
     }

@@ -30,6 +30,7 @@ public class PriorityQueue {
       position /= 2;
     }
     this.listOfJobs[position] = newJob;
+    System.out.println("inserted the task " + job + " with priority " + priority + " at index " + position);
   }
 
   public void clear() {
