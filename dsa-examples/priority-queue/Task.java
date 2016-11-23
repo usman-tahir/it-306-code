@@ -30,6 +30,6 @@ public class Task {
   }
 
   public String toString() {
-    return "Job name: " + this.job + "\nPriority: " + this.priority + "\n";
+    return "Job name: " + this.job + ", Priority: " + this.priority + "\n";
   }
 }
