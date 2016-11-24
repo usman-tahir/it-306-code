@@ -81,7 +81,7 @@ public class BinaryTree {
 
   private void preOrder(BinaryTreeNode root) {
     if (root != null) {
-      System.out.println(root.getData() + " ");
+      System.out.print(root.getData() + " ");
       preOrder(root.getLeft());
       preOrder(root.getRight());
     }
