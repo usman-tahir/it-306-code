@@ -13,6 +13,11 @@ public class ActivityApplication {
     //then create a pair vector that gets the permutations
     // A Permutation is an ordered Combination
     
+    // Generic Vectors needs to be passed in
+    // Vector
+    // Go through and make each element of v1 and v2 the first of the Vector Pair
+    // Throw all v1 and v2 into one generic vector
+    
     v1.addElement(new String("Tom"));
     v1.addElement(new String("Jon"));
     v1.addElement(new String("Mary"));
