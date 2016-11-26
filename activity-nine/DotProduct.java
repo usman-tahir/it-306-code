@@ -24,4 +24,5 @@ public class DotProduct {
     }
     return out;
   }
+
 }
