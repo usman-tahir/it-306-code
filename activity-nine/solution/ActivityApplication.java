@@ -1,4 +1,8 @@
-
+/**
+  * IT 306 Assignment 9 (Module 10)
+  * Usman Tahir, Phillip Ramirex
+  * 11/26/16
+*/
 import java.util.Vector;
 
 public class ActivityApplication {
