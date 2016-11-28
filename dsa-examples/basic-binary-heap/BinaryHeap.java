@@ -104,4 +104,12 @@ public class BinaryHeap {
     }
     return bestChild;
   }
+
+  public void printBinaryHeap() {
+    System.out.print("Current Binary Heap: ");
+    for (int i = 0; i < this.size; i += 1) {
+      System.out.print(this.heap[i] + " ");
+    }
+    System.out.println();
+  }
 }
