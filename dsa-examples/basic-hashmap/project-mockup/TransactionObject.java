@@ -35,7 +35,7 @@ public class TransactionObject {
   }
 
   public String toString() {
-    String output = "--- Transaction Information ---\n";
+    String output = "\n--- Transaction Information ---\n";
     output += "Member ID: " + this.memberID + "\nStore ID: " + this.storeID + "\nAmount spent: $" + this.amountSpent + "\n";
     return output;
   }

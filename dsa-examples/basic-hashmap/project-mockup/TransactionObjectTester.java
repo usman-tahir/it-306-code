@@ -25,8 +25,9 @@ public class TransactionObjectTester {
     for (i = 1; i <= 10; i += 1) {
       transactions.put(i, new TransactionObject(getRandomMember(members).getMemberID(), getRandomStore(stores).getStoreID(), getRandomTransactionAmount()));
     }
-  }
 
+    printTransactions(transactions);
+  }
   public static Store getRandomStore(Store[] stores) {
     int random = new Random().nextInt(stores.length);
     return stores[random];
@@ -43,5 +44,15 @@ public class TransactionObjectTester {
     double random = new Random().nextDouble();
     double result = min + (random * (max - min));
     return result;
+  }
+
+  public static void printTransactions(HashMap<Integer, TransactionObject> transactions) {
+    Set set = transactions.entrySet();
+    Iterator iterator = set.iterator();
+
+    while (iterator.hasNext()) {
+      Map.Entry mapEntry = (Map.Entry)iterator.next();
+      System.out.println("Transaction #" + mapEntry.getKey() + mapEntry.getValue().toString());
+    }
   }
 }
