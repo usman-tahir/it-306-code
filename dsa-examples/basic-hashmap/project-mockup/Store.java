@@ -35,7 +35,7 @@ public class Store {
   }
 
   public String toString() {
-    String output = "--- Store Details ---\n";
+    String output = "\n--- Store Details ---\n";
     output += "Store ID: " + this.storeID + "\nStore Owner: " + this.storeOwner + "\nTotal transactions: $" + this.totalTransactionAmount;
     return output + "\n";
   }

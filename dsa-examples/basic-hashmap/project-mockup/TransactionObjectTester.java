@@ -28,6 +28,17 @@ public class TransactionObjectTester {
 
     // printTransactions(transactions);
     processTransactions(transactions, stores, members);
+
+    for (Store s : stores) {
+      System.out.println(s.toString());
+    }
+    System.out.println("The store with the most sales was: " + getStoreWithHighestTransactions(stores).toString());
+
+    for (Member m : members) {
+      System.out.println(m.toString());
+    }
+    
+    System.out.println("The member who spent the most was: " + getMemberWithHighestAmountSpent(members).toString());
   }
   public static Store getRandomStore(Store[] stores) {
     int random = new Random().nextInt(stores.length);
@@ -93,6 +104,28 @@ public class TransactionObjectTester {
       updateMember(o, m);
       updateStore(o, s);
     }
+  }
+
+  public static Store getStoreWithHighestTransactions(Store[] s) {
+    int index;
+    int highestIndex = 0;
+    for (index = 0; index < s.length; index += 1) {
+      if (s[index].getTotalTransactionAmount() >= s[highestIndex].getTotalTransactionAmount()) {
+        highestIndex = index;
+      }
+    }
+    return s[highestIndex];
+  }
+
+  public static Member getMemberWithHighestAmountSpent(Member[] m) {
+    int index;
+    int highestIndex = 0;
+    for (index = 0; index < m.length; index += 1) {
+      if (m[index].getAmountSpent() >= m[highestIndex].getAmountSpent()) {
+        highestIndex = index;
+      }
+    }
+    return m[highestIndex];
   }
 
   public static void printTransactions(HashMap<Integer, TransactionObject> transactions) {

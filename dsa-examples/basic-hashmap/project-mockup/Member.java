@@ -35,7 +35,7 @@ public class Member {
   }
 
   public String toString() {
-    String output = "--- Member Information ---\n";
+    String output = "\n--- Member Information ---\n";
     output += "Member ID: " + this.memberID + "\nMember name: " + this.name + "\nAmount spent: $" + this.amountSpent;
     return output + "\n";
   }
