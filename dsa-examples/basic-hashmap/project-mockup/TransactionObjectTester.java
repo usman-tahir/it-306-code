@@ -26,7 +26,8 @@ public class TransactionObjectTester {
       transactions.put(i, new TransactionObject(getRandomMember(members).getMemberID(), getRandomStore(stores).getStoreID(), getRandomTransactionAmount()));
     }
 
-    printTransactions(transactions);
+    // printTransactions(transactions);
+    processTransactions(transactions, stores, members);
   }
   public static Store getRandomStore(Store[] stores) {
     int random = new Random().nextInt(stores.length);
@@ -44,6 +45,54 @@ public class TransactionObjectTester {
     double random = new Random().nextDouble();
     double result = min + (random * (max - min));
     return result;
+  }
+
+  public static int getIndexedStoreFromTransaction(TransactionObject t, Store[] s) {
+    int storeID = t.getStoreID();
+    int i;
+    for (i = 0; i < s.length; i += 1) {
+      if (s[i].getStoreID() == storeID) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public static int getIndexedMemberFromTransaction(TransactionObject t, Member[] m) {
+    int memberID = t.getMemberID();
+    int i;
+    for (i = 0; i < m.length; i += 1) {
+      if (m[i].getMemberID() == memberID) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public static Member[] updateMember(TransactionObject t, Member[] m) {
+    double amount = t.getAmountSpent();
+    int index = getIndexedMemberFromTransaction(t, m);
+    m[index].setAmountSpent(m[index].getAmountSpent() + amount);
+    return m;
+  }
+
+  public static Store[] updateStore(TransactionObject t, Store[] s) {
+    double amount = t.getAmountSpent();
+    int index = getIndexedStoreFromTransaction(t, s);
+    s[index].setTotalTransactionAmount(s[index].getTotalTransactionAmount() + amount);
+    return s;
+  }
+
+  public static void processTransactions(HashMap<Integer, TransactionObject> t, Store[] s, Member[] m) {
+    Set set = t.entrySet();
+    Iterator iterator = set.iterator();
+
+    while (iterator.hasNext()) {
+      Map.Entry mapEntry = (Map.Entry)iterator.next();
+      TransactionObject o = (TransactionObject)mapEntry.getValue();
+      updateMember(o, m);
+      updateStore(o, s);
+    }
   }
 
   public static void printTransactions(HashMap<Integer, TransactionObject> transactions) {
