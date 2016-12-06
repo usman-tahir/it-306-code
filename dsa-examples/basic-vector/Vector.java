@@ -58,7 +58,7 @@ public class Vector<T> {
     try {
       return this.vector.get(index);
     } catch (IndexOutOfBoundsException e) {
-      System.out.println(e.getMessage());
+      // System.out.println("\n" + e.getMessage());
     }
     return null;
   }
