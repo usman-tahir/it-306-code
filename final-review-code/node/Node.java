@@ -25,9 +25,9 @@ public class Node {
   }
 
   public boolean hasNext() {
-    if (this.next == null) {
-      return false;
+    if (this.next != null) {
+      return true;
     }
-    return true;
+    return false;
   }
 }
