@@ -15,8 +15,9 @@ public class InsertionSort {
   // Insertion sort on an array of integers
   public static int[] insertionSort(int[] numbers) {
     int temp, previousIndex, index;
+    int len = numbers.length;
 
-    for (index = 0; index < numbers.length; index += 1) {
+    for (index = 1; index < len; index += 1) {
       temp = numbers[index];
       previousIndex = index - 1;
       while (previousIndex >= 0 && (numbers[previousIndex] > temp)) {
